@@ -8,14 +8,15 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [],
+		"ignore": ["node_modules", ".next"],
 		"include": [
 			"src/**/*.js",
 			"src/**/*.jsx",
 			"src/**/*.ts",
 			"src/**/*.tsx",
-			"**/*.json",
-			"**/*.scss"
+			"src/**/*.scss",
+			"src/**/*.css",
+			"**/*.json"
 		]
 	},
 	"formatter": {
@@ -89,7 +90,8 @@
 	},
 	"javascript": {
 		"formatter": {
-			"quoteStyle": "double"
+			"quoteStyle": "single",
+			"indentStyle": "space"
 		},
 		"globals": [
 			"ononline",
@@ -192,5 +194,11 @@
 			"onmessageerror",
 			"onmousewheel"
 		]
+	},
+	"css": {
+		"formatter": {
+			"indentWidth": 2,
+			"indentStyle": "space"
+		}
 	}
 }
