@@ -10,12 +10,12 @@
 		"ignoreUnknown": false,
 		"ignore": ["node_modules", ".next"],
 		"include": [
-			"src/**/*.js",
-			"src/**/*.jsx",
-			"src/**/*.ts",
-			"src/**/*.tsx",
-			"src/**/*.scss",
-			"src/**/*.css",
+			"**/src/**/*.js",
+			"**/src/**/*.jsx",
+			"**/src/**/*.ts",
+			"**/src/**/*.tsx",
+			"**/src/**/*.scss",
+			"**/src/**/*.css",
 			"**/*.json"
 		]
 	},
