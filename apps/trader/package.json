@@ -1,0 +1,30 @@
+{
+  "name": "trader",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "pnpm /^lint:.*/",
+    "lint:biome": "pnpm /^lint:biome:.*/",
+    "lint:biome:lint": "biome lint .",
+    "lint:biome:format": "biome format .",
+    "lint:tsc": "tsc --noEmit",
+    "preview": "vite preview",
+    "clean": "rm -rf .turbo"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "globals": "^15.14.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0"
+  }
+}
