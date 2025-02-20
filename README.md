@@ -1,14 +1,15 @@
-# Portfolio Project
+# Ironpay Frontend Monorepo
 
-This repository contains the source code for my personal portfolio website. It showcases my projects, skills, and experience.
+Turborepo + Vite + React + TS + Tailwind CSS v4 + shadcn/ui.
+
+This repository contains the source code of monorepo.
 
 ## Table of Contents
 
-- [Portfolio Project](#portfolio-project)
+- [Ironpay Frontend Monorepo](#ironpay-frontend-monorepo)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Monorepo Structure \& Usage](#monorepo-structure--usage)
-  - [License](#license)
 
 ## Installation
 
@@ -16,11 +17,11 @@ To set up the project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/portfolio.git
+    git clone git@github.com:IronPay/frontend.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd portfolio
+    cd frontend
     ```
 3. Install the dependencies:
     ```bash
@@ -53,7 +54,3 @@ To add a new sub-project to the `apps` folder, follow these steps:
     ```
 
 After adding the new sub-project, you can manage it along with other packages using Turborepo commands.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
