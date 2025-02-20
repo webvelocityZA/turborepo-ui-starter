@@ -33,7 +33,8 @@
       },
       "style": {
         "useBlockStatements": "error",
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "useImportType": "warn"
       },
       "performance": {
         "noDelete": "off"
