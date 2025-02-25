@@ -1,8 +1,13 @@
 {
-  "compilerOptions": {
-    "jsx": "react"
-  },
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"extends": "@workspace/typescript-config/base.app.json",
-	"include": ["src"]
+	"include": ["src"],
+	"compilerOptions": {
+	  "jsx": "react",
+	  "paths": {
+			  "@/*": ["./src/*"],
+			  "@workspace/ui/*": ["../../packages/ui/src/*"
+		  ]
+		  }
+	},
 }
