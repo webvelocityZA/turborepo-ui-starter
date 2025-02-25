@@ -40,5 +40,17 @@
         "noDelete": "off"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "include": ["apps/backend/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ]
 }
