@@ -1,7 +1,9 @@
-import { Injectable } from "@nestjs/common";
+import { CACHE_MANAGER } from "@nestjs/cache-manager";
+import { Inject, Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Client } from "@notionhq/client";
 import type { AppendBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
+import { Cache } from "cache-manager";
 
 import type { Config } from "src/config";
 
@@ -11,7 +13,10 @@ import { buildTableRow } from "./utils";
 export class NotionService {
   private notionClient: Client;
 
-  constructor(private configService: ConfigService<Config, true>) {
+  constructor(
+    private configService: ConfigService<Config, true>,
+    @Inject(CACHE_MANAGER) private cacheManager: Cache,
+  ) {
     this.notionClient = new Client({
       auth: this.configService.get("NOTION_TOKEN", { infer: true }),
     });
@@ -36,13 +41,21 @@ export class NotionService {
 
   async appendAddress(...addresses: string[]): Promise<AppendBlockChildrenResponse> {
     try {
-      return await this.notionClient.blocks.children.append({
+      const response = await this.notionClient.blocks.children.append({
         block_id: this.configService.get("NOTION_BLOCK_ID", { infer: true }),
         children: addresses.map((address) => buildTableRow(address)),
       });
+
+      await this.clearCache();
+
+      return response;
     } catch (error) {
       console.error("Failed to append address", error);
       throw new Error("Failed to append address");
     }
+  }
+
+  private async clearCache() {
+    await this.cacheManager.clear();
   }
 }
