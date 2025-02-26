@@ -1,5 +1,6 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Patch } from "@nestjs/common";
+import { Body, Controller, Get, HttpException, HttpStatus, Patch, UsePipes, ValidationPipe } from "@nestjs/common";
 
+import { AppendAddressesDto } from "./notion.dto";
 import { NotionService } from "./notion.service";
 
 @Controller("notion")
@@ -17,14 +18,8 @@ export class NotionController {
   }
 
   @Patch()
-  async appendAddress(@Body("addresses") addresses: string[]) {
-    if (!addresses || !Array.isArray(addresses) || addresses.length === 0) {
-      throw new HttpException(
-        "`addresses` is required and it should be an `Array` of `string`",
-        HttpStatus.BAD_REQUEST,
-      );
-    }
-
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async appendAddresses(@Body() { addresses }: AppendAddressesDto) {
     try {
       const data = await this.notionService.appendAddress(...addresses);
       return { success: true, data };
