@@ -1,9 +1,21 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Patch, UsePipes, ValidationPipe } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Patch,
+  UseInterceptors,
+  UsePipes,
+  ValidationPipe,
+} from "@nestjs/common";
 
 import { AppendAddressesDto } from "./notion.dto";
 import { NotionService } from "./notion.service";
 
 @Controller("notion")
+@UseInterceptors(CacheInterceptor)
 export class NotionController {
   constructor(private notionService: NotionService) {}
 
