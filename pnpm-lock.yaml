@@ -29,6 +29,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^11.0.1
         version: 11.0.10(@nestjs/common@11.0.10(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.0.10)
+      '@notionhq/client':
+        specifier: ^2.2.16
+        version: 2.2.16
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -93,9 +96,6 @@ importers:
 
   apps/trader:
     dependencies:
-      '@notionhq/client':
-        specifier: ^2.2.16
-        version: 2.2.16
       '@tailwindcss/vite':
         specifier: ^4.0.7
         version: 4.0.7(vite@6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.85.0)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0))
