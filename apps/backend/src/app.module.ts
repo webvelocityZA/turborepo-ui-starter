@@ -9,6 +9,7 @@ import { validate } from "./config";
   imports: [
     ConfigModule.forRoot({
       validate,
+      isGlobal: true,
     }),
   ],
   controllers: [AppController],
