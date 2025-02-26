@@ -9,6 +9,7 @@ const configValidationSchema = z.object({
   NOTION_BLOCK_ID: z.string().min(32).max(36),
   CACHE_LIFETIME: z.number().int().positive().default(60000),
   CACHE_MAX_ITEMS: z.number().int().positive().default(10),
+  CORS_ORIGIN: z.string().url(),
 });
 
 export const validate = (config: Record<string, unknown>) => {

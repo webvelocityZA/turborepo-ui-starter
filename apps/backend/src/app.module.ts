@@ -12,6 +12,7 @@ import { AppController } from "./app.controller";
     ConfigModule.forRoot({
       validate,
       isGlobal: true,
+      envFilePath: [".env.development", ".env"],
     }),
     NotionModule,
   ],
