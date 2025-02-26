@@ -50,6 +50,11 @@
             "useImportType": "off"
           }
         }
+      },
+      "javascript": {
+        "parser": {
+          "unsafeParameterDecoratorsEnabled": true
+        }
       }
     }
   ]
