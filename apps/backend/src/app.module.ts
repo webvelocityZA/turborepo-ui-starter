@@ -6,7 +6,6 @@ import { validate } from "./config";
 import { NotionModule } from "./notion/notion.module";
 
 import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
 
 @Module({
   imports: [
@@ -17,6 +16,6 @@ import { AppService } from "./app.service";
     NotionModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
