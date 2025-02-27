@@ -7,9 +7,10 @@ const configValidationSchema = z.object({
    * See the "Where can I find my page's ID?" block about the page ID format
    */
   NOTION_BLOCK_ID: z.string().min(32).max(36),
-  CACHE_LIFETIME: z.number().int().positive().default(60000),
-  CACHE_MAX_ITEMS: z.number().int().positive().default(10),
+  CACHE_LIFETIME: z.coerce.number().int().positive().default(60000),
+  CACHE_MAX_ITEMS: z.coerce.number().int().positive().default(10),
   CORS_ORIGIN: z.string().url(),
+  PORT: z.coerce.number().int().positive().default(3000),
 });
 
 export const validate = (config: Record<string, unknown>) => {
