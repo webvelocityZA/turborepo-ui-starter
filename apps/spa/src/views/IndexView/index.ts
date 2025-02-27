@@ -1,1 +1,0 @@
-export { IndexView } from "./IndexView";

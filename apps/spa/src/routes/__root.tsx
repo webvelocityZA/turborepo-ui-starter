@@ -1,5 +1,9 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import React, { Suspense } from "react";
+
+import type { useTonWallet } from "@workspace/ton-connect-sdk-react-ui";
+
+import { Header } from "@/components/Header.tsx";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -10,9 +14,14 @@ const TanStackRouterDevtools =
         })),
       );
 
-export const Route = createRootRoute({
+type RouterContext = {
+  wallet: ReturnType<typeof useTonWallet>;
+};
+
+export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <>
+      <Header />
       <Outlet />
       <Suspense>
         <TanStackRouterDevtools />

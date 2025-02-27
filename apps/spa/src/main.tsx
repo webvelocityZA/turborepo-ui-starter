@@ -1,23 +1,29 @@
-import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { RouterProvider as LibRouterProvider } from "@tanstack/react-router";
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import { routeTree } from "./routeTree.gen";
+import { useIsConnectionRestored, useTonWallet } from "@workspace/ton-connect-sdk-react-ui";
 
-const router = createRouter({ routeTree });
+import { AppProviders } from "@/providers";
+import { router } from "@/router.ts";
 
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}
+const RouterProvider = () => {
+  const wallet = useTonWallet();
+  const isConnectionRestored = useIsConnectionRestored();
+
+  if (!isConnectionRestored) return "Loading";
+
+  return <LibRouterProvider router={router} context={{ wallet }} />;
+};
 
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
   const root = createRoot(rootElement);
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <AppProviders>
+        <RouterProvider />
+      </AppProviders>
     </StrictMode>,
   );
 }

@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-import { IndexView } from "@/views/IndexView";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  component: IndexView,
+  beforeLoad: () => {
+    throw redirect({ to: "/items" });
+  },
 });
