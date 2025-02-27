@@ -176,7 +176,7 @@ importers:
         specifier: ^6.1.0
         version: 6.1.1(@types/node@22.13.4)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.85.0)(terser@5.39.0)(tsx@4.19.3)(yaml@2.7.0)
 
-  apps/trader:
+  apps/spa:
     dependencies:
       '@tailwindcss/vite':
         specifier: ^4.0.7
