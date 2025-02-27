@@ -3,7 +3,6 @@
 	"extends": "@workspace/typescript-config/base.app.json",
 	"include": ["src"],
 	"compilerOptions": {
-	  "jsx": "react",
 	  "paths": {
 			"@/*": ["./src/*"],
 			"@workspace/ui/*": ["../../packages/ui/src/*"],
