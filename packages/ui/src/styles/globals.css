@@ -30,6 +30,27 @@
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
   --radius: 0.6rem;
+
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 32px;
+  --spacing-8: 40px;
+  --spacing-9: 48px;
+  --spacing-10: 60px;
+  --spacing-11: 80px;
+
+  --breakpoint-sm: 0px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
 }
 
 .dark {
@@ -96,5 +117,29 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto w-full max-w-none px-4;
+
+    @variant sm {
+      @apply px-4;
+    }
+
+    @variant md {
+      @apply px-10;
+    }
+
+    @variant lg {
+      @apply px-0;
+
+      max-width: 884px;
+    }
+
+    @variant xl {
+      max-width: 1120px;
+    }
   }
 }
