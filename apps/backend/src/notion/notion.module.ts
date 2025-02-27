@@ -11,7 +11,7 @@ import { NotionService } from "./notion.service";
   imports: [
     CacheModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: (configService: ConfigService<Config>) => ({
+      useFactory: (configService: ConfigService<Config, true>) => ({
         ttl: configService.get("CACHE_LIFETIME", { infer: true }),
         max: configService.get("CACHE_MAX_ITEMS", { infer: true }),
       }),
