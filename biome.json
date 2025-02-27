@@ -32,7 +32,6 @@
         "useExhaustiveDependencies": "warn"
       },
       "style": {
-        "useBlockStatements": "error",
         "noNonNullAssertion": "off",
         "useImportType": "warn"
       },
