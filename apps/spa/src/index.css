@@ -1,1 +1,3 @@
 @import "@workspace/ui/globals.css";
+
+@import "./styles/_ton-connect.css";

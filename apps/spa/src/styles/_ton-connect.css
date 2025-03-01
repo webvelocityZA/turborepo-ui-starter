@@ -1,0 +1,4 @@
+button[data-tc-connect-button] {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
