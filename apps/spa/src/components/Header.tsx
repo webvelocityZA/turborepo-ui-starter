@@ -1,11 +1,12 @@
-import type React from "react";
+import React from "react";
 
-import { TonConnectButton } from "@workspace/ton-connect-sdk-react-ui";
 import { cn } from "@workspace/ui/lib/utils";
 
-export const Header: React.FC<Omit<React.ComponentPropsWithoutRef<"div">, "children">> = ({ className, ...props }) => (
-  <div {...props} className={cn("container flex items-center justify-between", className)}>
-    Logo
-    <TonConnectButton />
-  </div>
+export const Header = React.forwardRef<HTMLDivElement, React.ComponentPropsWithRef<"div">>(
+  ({ children, className, ...props }, ref) => (
+    <div {...props} ref={ref} className={cn("container flex items-center justify-between py-2", className)}>
+      Logo
+      {children}
+    </div>
+  ),
 );

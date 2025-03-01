@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 
 import type { useTonWallet } from "@workspace/ton-connect-sdk-react-ui";
 
-import { Header } from "@/components/Header.tsx";
+import { HeaderContainer } from "@/containers/HeaderContainer";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -21,8 +21,10 @@ type RouterContext = {
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <>
-      <Header />
-      <Outlet />
+      <HeaderContainer />
+      <main className="container mx-auto">
+        <Outlet />
+      </main>
       <Suspense>
         <TanStackRouterDevtools />
       </Suspense>
