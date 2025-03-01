@@ -1,7 +1,9 @@
 import { BaseNetworkService } from "@/services/BaseNetworkService";
 
+import type { APIResponse } from "./APINetworkService.types";
+
 export class APINetworkService extends BaseNetworkService {
-  async getAddresses() {
-    return this.get<string[]>("/addresses");
+  getAddresses() {
+    return this.get<APIResponse<string[]>>("/addresses");
   }
 }
