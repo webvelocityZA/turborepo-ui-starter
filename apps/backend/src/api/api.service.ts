@@ -10,7 +10,7 @@ import type { Config } from "src/config";
 import { buildTableRow } from "./utils";
 
 @Injectable()
-export class NotionService {
+export class ApiService {
   private notionClient: Client;
 
   constructor(

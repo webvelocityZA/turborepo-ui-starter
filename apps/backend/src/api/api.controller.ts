@@ -11,15 +11,15 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 
-import { AppendAddressesDto } from "./notion.dto";
-import { NotionService } from "./notion.service";
+import { AppendAddressesDto } from "./api.dto";
+import { ApiService } from "./api.service";
 
-@Controller("notion")
+@Controller("api")
 @UseInterceptors(CacheInterceptor)
-export class NotionController {
-  constructor(private notionService: NotionService) {}
+export class ApiController {
+  constructor(private notionService: ApiService) {}
 
-  @Get()
+  @Get("addresses")
   async getAddresses() {
     try {
       const data = await this.notionService.getAddresses();
@@ -29,7 +29,7 @@ export class NotionController {
     }
   }
 
-  @Patch()
+  @Patch("addresses")
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async appendAddresses(@Body() { addresses }: AppendAddressesDto) {
     try {

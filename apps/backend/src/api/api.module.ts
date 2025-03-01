@@ -4,8 +4,8 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 
 import { Config } from "src/config";
 
-import { NotionController } from "./notion.controller";
-import { NotionService } from "./notion.service";
+import { ApiController } from "./api.controller";
+import { ApiService } from "./api.service";
 
 @Module({
   imports: [
@@ -18,7 +18,7 @@ import { NotionService } from "./notion.service";
       inject: [ConfigService],
     }),
   ],
-  controllers: [NotionController],
-  providers: [NotionService],
+  controllers: [ApiController],
+  providers: [ApiService],
 })
-export class NotionModule {}
+export class ApiModule {}
