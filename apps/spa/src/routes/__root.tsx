@@ -24,7 +24,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <>
       <HeaderContainer />
-      <main className="container mx-auto">
+      <main className="container mx-auto pt-4 mt-[var(--header-height)]">
         <Outlet />
       </main>
       <Suspense>
