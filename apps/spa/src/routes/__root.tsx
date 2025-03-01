@@ -1,3 +1,4 @@
+import type { QueryClient } from "@tanstack/react-query";
 import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import React, { Suspense } from "react";
 
@@ -15,6 +16,7 @@ const TanStackRouterDevtools =
       );
 
 type RouterContext = {
+  queryClient: QueryClient;
   wallet: ReturnType<typeof useTonWallet>;
 };
 
