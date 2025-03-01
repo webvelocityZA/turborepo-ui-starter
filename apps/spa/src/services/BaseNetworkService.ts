@@ -40,11 +40,11 @@ export abstract class BaseNetworkService {
     return this.request<T>(endpoint, "GET", undefined, headers);
   }
 
-  protected post<T, B>(endpoint: string, body: B, headers?: Record<string, string>) {
+  protected post<T, B = Record<string, unknown>>(endpoint: string, body?: B, headers?: Record<string, string>) {
     return this.request<T, B>(endpoint, "POST", body, headers);
   }
 
-  protected put<T, B>(endpoint: string, body: B, headers?: Record<string, string>) {
+  protected put<T, B = Record<string, unknown>>(endpoint: string, body?: B, headers?: Record<string, string>) {
     return this.request<T, B>(endpoint, "PUT", body, headers);
   }
 
