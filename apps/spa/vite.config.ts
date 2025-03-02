@@ -4,13 +4,23 @@ import { defineConfig, loadEnv } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react-swc";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const { PORT } = loadEnv(mode, process.cwd(), "");
 
   return {
-    plugins: [TanStackRouterVite({ autoCodeSplitting: true }), react(), tailwindcss()],
+    plugins: [
+      nodePolyfills({
+        globals: {
+          Buffer: true,
+        },
+      }),
+      TanStackRouterVite({ autoCodeSplitting: true }),
+      react(),
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),

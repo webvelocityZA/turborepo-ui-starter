@@ -18,7 +18,7 @@
     "@tailwindcss/vite": "^4.0.7",
     "@tanstack/react-query": "^5.66.9",
     "@tanstack/react-router": "^1.109.2",
-    "@ton/ton": "^15.2.1",
+    "@workspace/entities": "workspace:*",
     "@workspace/ton-connect-sdk-react-ui": "workspace:*",
     "@workspace/ui": "workspace:*",
     "lucide-react": "^0.475.0",
@@ -28,6 +28,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@tanstack/router-devtools": "^1.109.2",
     "@tanstack/router-plugin": "^1.109.2",
     "@total-typescript/ts-reset": "^0.6.1",
@@ -38,6 +39,7 @@
     "@workspace/typescript-config": "workspace:*",
     "globals": "^15.14.0",
     "typescript": "~5.7.2",
-    "vite": "^6.1.0"
+    "vite": "^6.1.0",
+    "vite-plugin-node-polyfills": "^0.23.0"
   }
 }
