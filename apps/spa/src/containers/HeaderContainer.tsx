@@ -11,6 +11,10 @@ export const HeaderContainer: React.FC<React.ComponentPropsWithoutRef<typeof Hea
   const router = useRouter();
   const wallet = useTonWallet();
 
+  /**
+   * This effect is used to set the header height as a CSS variable
+   * to be used in the main content to avoid overlapping
+   */
   useEffect(() => {
     const handleResize = () => {
       document.documentElement.style.setProperty("--header-height", `${headerRef.current?.offsetHeight}px`);
