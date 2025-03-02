@@ -6,6 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/index.css" rel="stylesheet">
     <title>Vite + React + TS</title>
+    <script>
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = src;
+          script.defer = true;
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+
+      (async () => {
+        const scriptURL = 'https://telegram.org/js/telegram-web-app.js';
+
+        if (!!window.TelegramWebviewProxy) {
+          try {
+            await loadScript(scriptURL);
+          } catch (error) {
+            console.error('Error loading Telegram script:', error);
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
