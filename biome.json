@@ -8,7 +8,7 @@
   },
   "files": {
     "ignore": ["node_modules", "dist", "out", "build", "public", "tsconfig.*", "*.gen.*"],
-    "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "**/*.scss", "**/*.css", "**/*.json"]
+    "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "**/*.scss", "**/*.css", "**/*.json", "**/*.html"]
   },
   "formatter": {
     "enabled": true,
