@@ -15,7 +15,7 @@ export const Route = createFileRoute("/login")({
 function RouteComponent() {
   return (
     <RootRouteWrapper className="h-[calc(100vh-var(--header-height)-var(--spacing-4)*2)]">
-      <HeartCrack size={80} className="text-destructive" />
+      <HeartCrack size={80} className="text-border" />
       <Typography.H1>NFTs are hidden</Typography.H1>
       <Typography.Muted>Please connect the wallet first</Typography.Muted>
     </RootRouteWrapper>
