@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Address } from "@workspace/entities";
 
-import { NFTItemCard } from "@/components/NFTItemCard";
+import { NFTItemCard, NFTItemCardSkeleton } from "@/components/NFTItemCard";
 import { NFTItem } from "@/entities/NFTItem";
 import { APINetworkService } from "@/services/APINetworkService";
 import { TonAPINetworkService } from "@/services/TonAPINetworkService";
@@ -40,7 +40,7 @@ const addressesQueryOptions = queryOptions({
 export const Route = createFileRoute("/_auth/items")({
   component: RouteComponent,
   loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(addressesQueryOptions),
-  pendingComponent: () => <div>Loading</div>,
+  pendingComponent: RoutePendingComponent,
   staleTime: 10_000, // 10 seconds
 });
 
@@ -51,6 +51,16 @@ function RouteComponent() {
     <div className="flex flex-col gap-4">
       {data.map((nftItem) => (
         <NFTItemCard key={nftItem.address.toString()} nftItem={nftItem} />
+      ))}
+    </div>
+  );
+}
+
+function RoutePendingComponent() {
+  return (
+    <div className="flex flex-col gap-4">
+      {Array.from(Array(10).keys()).map((num) => (
+        <NFTItemCardSkeleton key={num} />
       ))}
     </div>
   );
