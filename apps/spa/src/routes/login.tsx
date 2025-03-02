@@ -3,7 +3,7 @@ import { HeartCrack } from "lucide-react";
 
 import { Typography } from "@workspace/ui/components/typography";
 
-import { RootRouteWrapper } from "./__root";
+import { RootRouteWrapper } from "@/components/RootRouteWrapper";
 
 export const Route = createFileRoute("/login")({
   beforeLoad: ({ context }) => {
