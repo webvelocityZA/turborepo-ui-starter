@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-tooltip": "^1.1.8",
     "@tailwindcss/vite": "^4.0.7",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -31,10 +32,10 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@workspace/typescript-config": "workspace:*",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react-swc": "^3.5.0",
+    "@workspace/typescript-config": "workspace:*",
     "globals": "^15.14.0",
     "typescript": "~5.7.2",
     "vite": "^6.1.0"
