@@ -7,15 +7,12 @@ export const Header = React.forwardRef<HTMLDivElement, React.ComponentPropsWithR
     <div
       {...props}
       ref={ref}
-      className={cn(
-        "fixed left-0 top-0",
-        "container flex items-center justify-between py-2",
-        "backdrop-blur-sm border-b shadow",
-        className,
-      )}
+      className={cn("fixed w-full left-0 top-0", "backdrop-blur-sm border-b shadow", className)}
     >
-      Logo
-      {children}
+      <div className="container flex items-center justify-between py-2">
+        Logo
+        {children}
+      </div>
     </div>
   ),
 );
