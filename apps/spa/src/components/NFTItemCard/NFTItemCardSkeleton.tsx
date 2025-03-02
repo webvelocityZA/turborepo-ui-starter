@@ -8,7 +8,8 @@ export const NFTItemCardSkeleton: React.FC<Omit<React.ComponentPropsWithoutRef<t
     <CardHeader className="p-4">
       <Skeleton className="w-1/2 h-4" />
       <CardDescription className="inline-flex gap-2">
-        <Skeleton className="w-1/4 h-5" />|<Skeleton className="w-1/4 h-5" />
+        <Skeleton className="w-1/4 h-5" />
+        <Skeleton className="w-1/4 h-5" />
       </CardDescription>
     </CardHeader>
     <CardContent className="p-0">
