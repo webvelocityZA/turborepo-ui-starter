@@ -6,7 +6,8 @@
 	  "paths": {
 			"@/*": ["./src/*"],
 			"@workspace/ui/*": ["../../packages/ui/src/*"],
-			"@workspace/ton-connect-sdk-react-ui": ["../../packages/ton-connect-sdk-react-ui/src"]
+			"@workspace/ton-connect-sdk-react-ui": ["../../packages/ton-connect-sdk-react-ui/src"],
+			"@workspace/entities": ["../../packages/entities"],
 		}
 	},
 }
