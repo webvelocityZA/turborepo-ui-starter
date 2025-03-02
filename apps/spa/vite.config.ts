@@ -19,5 +19,12 @@ export default defineConfig(({ mode }) => {
     server: {
       port: Number.parseInt(PORT),
     },
+    output: {
+      manualChunks: {
+        vendors: ["react", "react-dom", "react-device-detect", "zod"],
+        workspace: ["@workspace/ui", "@workspace/ton-connect-sdk-react-ui", "@workspace/entities"],
+        tonconnect: ["@tonconnect/ui"],
+      },
+    },
   };
 });
