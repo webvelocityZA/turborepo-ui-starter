@@ -33,7 +33,7 @@ function RootRouteComponent() {
   return (
     <>
       <HeaderContainer />
-      <main className="container mx-auto pt-4 mt-[var(--header-height)]">
+      <main className="container mx-auto pt-4">
         <Outlet />
       </main>
       <Suspense>
