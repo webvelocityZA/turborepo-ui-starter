@@ -13,6 +13,10 @@ import { NFTItem } from "@/entities/NFTItem";
 import { APINetworkService } from "@/services/APINetworkService";
 import { TonAPINetworkService } from "@/services/TonAPINetworkService";
 
+const spacing4 = Number.parseInt(
+  window.getComputedStyle(document.documentElement).getPropertyValue("--spacing-4").slice(0, -2),
+);
+
 const addressesQueryOptions = (pageSize: number) =>
   infiniteQueryOptions({
     queryKey: ["nftItems", pageSize],
@@ -83,10 +87,10 @@ function RouteComponent() {
     getScrollElement: () => parentRef.current,
     estimateSize: () => 500,
     overscan: 2,
-    paddingStart: Number.parseInt(document.documentElement.style.getPropertyValue("--header-height").slice(0, -2)),
-    gap: Number.parseInt(
-      window.getComputedStyle(document.documentElement).getPropertyValue("--spacing-4").slice(0, -2),
-    ),
+    paddingStart:
+      Number.parseInt(document.documentElement.style.getPropertyValue("--header-height").slice(0, -2)) + spacing4,
+    paddingEnd: spacing4,
+    gap: spacing4,
   });
 
   useEffect(() => {
@@ -100,10 +104,7 @@ function RouteComponent() {
   }, [hasNextPage, fetchNextPage, nftItems.length, isFetchingNextPage, virtualizer.getVirtualItems()]);
 
   return (
-    <div
-      ref={parentRef}
-      className="h-[calc(100vh-var(--spacing-4)*2)] overflow-y-auto contain-strict flex flex-col gap-4"
-    >
+    <div ref={parentRef} className="container min-h-full overflow-y-auto contain-strict flex flex-col gap-4">
       <div style={{ height: virtualizer.getTotalSize() }} className="w-full relative">
         <div
           style={{ transform: `translateY(${virtualizer.getVirtualItems()[0]?.start ?? 0}px)` }}
@@ -114,7 +115,9 @@ function RouteComponent() {
             const nftItem = nftItems[virtualRow.index];
 
             return isLoaderRow ? (
-              <Loader2 key={virtualRow.key} size={42} className="animate-spin p-2 mx-auto" />
+              <div key={virtualRow.key} className="size-10 mx-auto overflow-hidden">
+                <Loader2 size={42} className="animate-spin p-2" />
+              </div>
             ) : (
               <NFTItemCard
                 key={virtualRow.key}
@@ -133,8 +136,8 @@ function RouteComponent() {
 
 function RoutePendingComponent() {
   return (
-    <div className="h-[calc(100vh-var(--spacing-4)*2)] flex flex-col gap-4 mt-[var(--header-height)]">
-      {Array.from(Array(10).keys()).map((num) => (
+    <div className="container min-h-full flex flex-col gap-4 pt-[calc(var(--header-height)+var(--spacing-4))] pb-4">
+      {Array.from(Array(2).keys()).map((num) => (
         <NFTItemCardSkeleton key={num} />
       ))}
     </div>
