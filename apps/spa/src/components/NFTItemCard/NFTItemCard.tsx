@@ -1,4 +1,4 @@
-import type React from "react";
+import React from "react";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@workspace/ui/components/card";
 
@@ -10,8 +10,8 @@ interface NFTItemCardProps extends Omit<React.ComponentPropsWithoutRef<typeof Ca
   nftItem: NFTItem;
 }
 
-export const NFTItemCard: React.FC<NFTItemCardProps> = ({ nftItem, ...props }) => (
-  <Card {...props}>
+export const NFTItemCard = React.forwardRef<HTMLDivElement, NFTItemCardProps>(({ nftItem, ...props }, ref) => (
+  <Card {...props} ref={ref}>
     <CardHeader className="p-4">
       <CardTitle className="truncate">{nftItem.name}</CardTitle>
       <CardDescription className="inline-flex gap-2">
@@ -26,4 +26,4 @@ export const NFTItemCard: React.FC<NFTItemCardProps> = ({ nftItem, ...props }) =
     </CardContent>
     {nftItem.description ? <CardFooter className="p-4">{nftItem.description}</CardFooter> : null}
   </Card>
-);
+));
