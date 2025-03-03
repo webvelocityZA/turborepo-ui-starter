@@ -452,10 +452,7 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
             <div className="grid grid-cols-[32px_auto] items-center gap-2">
               <GitBranch className="me-2" size={32} />
               <div className="flex flex-col gap-1 truncate">
-                <h3 className="text-xl font-bold inline-flex items-center gap-1 truncate">
-                  GitHub repo
-                  <CircleX size={20} className="text-destructive" />
-                </h3>
+                <h3 className="text-xl font-bold inline-flex items-center gap-1 truncate">GitHub repo</h3>
                 <a
                   href="https://github.com/bodasooqa/ton-society-test"
                   target="_blank"
