@@ -5,6 +5,7 @@ interface INFTItem {
   description: string;
   image: string;
   address: Address;
+  ownerAddress: Address;
 }
 
 export class NFTItem {
@@ -12,11 +13,13 @@ export class NFTItem {
   readonly description: string;
   readonly image: string;
   readonly address: Address;
+  readonly ownerAddress: Address;
 
   constructor(dependencies: INFTItem) {
     this.name = dependencies.name;
     this.description = dependencies.description;
     this.image = dependencies.image;
     this.address = dependencies.address;
+    this.ownerAddress = dependencies.ownerAddress;
   }
 }

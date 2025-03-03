@@ -37,12 +37,13 @@ const addressesQueryOptions = (pageSize: number) =>
 
       return {
         nftItems: nft_items.map(
-          ({ address, metadata, previews }) =>
+          ({ address, metadata, owner, previews }) =>
             new NFTItem({
               name: metadata.name,
               description: metadata.description,
               image: previews.find((preview) => preview.resolution === "500x500")?.url ?? metadata.image,
               address: new Address(address),
+              ownerAddress: new Address(owner.address),
             }),
         ),
         nextCursor,
