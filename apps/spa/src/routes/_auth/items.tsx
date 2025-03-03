@@ -1,6 +1,7 @@
 import { infiniteQueryOptions, useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useVirtualizer } from "@tanstack/react-virtual";
+import { Loader2 } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { z } from "zod";
 
@@ -113,7 +114,7 @@ function RouteComponent() {
             const nftItem = nftItems[virtualRow.index];
 
             return isLoaderRow ? (
-              "Loading"
+              <Loader2 key={virtualRow.key} size={42} className="animate-spin p-2 mx-auto" />
             ) : (
               <NFTItemCard
                 key={virtualRow.key}
