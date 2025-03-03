@@ -15,11 +15,16 @@ export const NFTItemCard = React.forwardRef<HTMLDivElement, NFTItemCardProps>(({
   <Card {...props} ref={ref}>
     <CardHeader className="p-4">
       <CardTitle className="truncate">{nftItem.name}</CardTitle>
-      <CardDescription className="inline-flex gap-2">
-        <AddressTooltip trigger={formatter.address(nftItem.address)}>{nftItem.address.toString()}</AddressTooltip>|
-        <AddressTooltip trigger={`(${formatter.address(nftItem.address, { isRaw: true })})`}>
-          {nftItem.address.toString(false)}
+      <CardDescription className="flex flex-col items-baseline gap-2">
+        <AddressTooltip trigger={`Owner: ${formatter.address(nftItem.ownerAddress)}`}>
+          {nftItem.ownerAddress.toString()}
         </AddressTooltip>
+        <div className="flex gap-2">
+          <AddressTooltip trigger={formatter.address(nftItem.address)}>{nftItem.address.toString()}</AddressTooltip>|
+          <AddressTooltip trigger={`(${formatter.address(nftItem.address, { isRaw: true })})`}>
+            {nftItem.address.toString(false)}
+          </AddressTooltip>
+        </div>
       </CardDescription>
     </CardHeader>
     <CardContent className="p-0">
