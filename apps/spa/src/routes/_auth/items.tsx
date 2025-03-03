@@ -1,5 +1,7 @@
 import { infiniteQueryOptions, useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
+import { useVirtualizer } from "@tanstack/react-virtual";
+import { useEffect, useRef } from "react";
 import { z } from "zod";
 
 import { Address } from "@workspace/entities";
@@ -60,23 +62,74 @@ export const Route = createFileRoute("/_auth/items")({
 });
 
 function RouteComponent() {
+  const parentRef = useRef<HTMLDivElement>(null);
+
   const { pageSize } = Route.useSearch();
   const {
     data: { pages },
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
   } = useSuspenseInfiniteQuery(addressesQueryOptions(pageSize));
 
+  const nftItems = pages.flatMap(({ nftItems }) => nftItems);
+
+  const virtualizer = useVirtualizer({
+    count: hasNextPage ? nftItems.length + 1 : nftItems.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 500,
+    overscan: 2,
+    paddingStart: Number.parseInt(document.documentElement.style.getPropertyValue("--header-height").slice(0, -2)),
+    gap: Number.parseInt(
+      window.getComputedStyle(document.documentElement).getPropertyValue("--spacing-4").slice(0, -2),
+    ),
+  });
+
+  useEffect(() => {
+    const [lastItem] = [...virtualizer.getVirtualItems()].reverse();
+
+    if (!lastItem) return;
+
+    if (lastItem.index >= nftItems.length - 1 && hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, fetchNextPage, nftItems.length, isFetchingNextPage, virtualizer.getVirtualItems()]);
+
   return (
-    <div className="flex flex-col gap-4">
-      {pages.map(({ nftItems }) =>
-        nftItems.map((nftItem) => <NFTItemCard key={nftItem.address.toString()} nftItem={nftItem} />),
-      )}
+    <div
+      ref={parentRef}
+      className="h-[calc(100vh-var(--spacing-4)*2)] overflow-y-auto contain-strict flex flex-col gap-4"
+    >
+      <div style={{ height: virtualizer.getTotalSize() }} className="w-full relative">
+        <div
+          style={{ transform: `translateY(${virtualizer.getVirtualItems()[0]?.start ?? 0}px)` }}
+          className="absolute top-0 left-0 w-full"
+        >
+          {virtualizer.getVirtualItems().map((virtualRow) => {
+            const isLoaderRow = virtualRow.index > nftItems.length - 1;
+            const nftItem = nftItems[virtualRow.index];
+
+            return isLoaderRow ? (
+              "Loading"
+            ) : (
+              <NFTItemCard
+                key={virtualRow.key}
+                data-index={virtualRow.index}
+                ref={virtualizer.measureElement}
+                nftItem={nftItem}
+                className="not-first:mt-4"
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
 
 function RoutePendingComponent() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="h-[calc(100vh-var(--spacing-4)*2)] flex flex-col gap-4 mt-[var(--header-height)]">
       {Array.from(Array(10).keys()).map((num) => (
         <NFTItemCardSkeleton key={num} />
       ))}
