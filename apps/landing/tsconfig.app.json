@@ -1,0 +1,11 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "@workspace/typescript-config/base.app.json",
+	"include": ["src"],
+	"compilerOptions": {
+	  "paths": {
+			"@/*": ["./src/*"],
+			"@workspace/ui/*": ["../../packages/ui/src/*"],
+		}
+	},
+}
