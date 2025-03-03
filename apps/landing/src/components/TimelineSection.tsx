@@ -17,6 +17,8 @@ import {
 } from "@workspace/ui/components/timeline";
 import { cn } from "@workspace/ui/lib/utils";
 
+import logoImg from "@/assets/logo.png";
+
 const timelineClassnames =
   "md:w-[calc(50%-1.5rem)] md:odd:ms-auto md:even:text-right md:even:group-data-[orientation=vertical]/timeline:ms-0 md:even:group-data-[orientation=vertical]/timeline:me-8 md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:-right-6 md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:left-auto md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-indicator]]:translate-x-1/2 md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:-right-6 md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:left-auto md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-separator]]:translate-x-1/2 md:even:group-data-[orientation=vertical]/timeline:[&_[data-slot=timeline-title]]:flex-row-reverse";
 
@@ -351,6 +353,20 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
 
       {showVideo && (
         <>
+          <div className="">
+            <h1 className="mt-[2rem] md:mt-[10rem] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-center">
+              Отдельное спасибо{" "}
+              <a href="https://dribbble.com/shots/18125645-NFT-Logo-with-N-F" className="underline">
+                Maxoint
+              </a>{" "}
+              за логотип
+            </h1>
+            <p className="text-center sm:text-lg md:text-xl text-black/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+              Я его повзаимствовал, но это не значит, что я его украл. <br /> Просто он мне понравился. Обещаю не
+              использовать его в коммерческих целях.
+            </p>
+            <img src={logoImg} alt="logo" className="mx-auto" />
+          </div>
           <Timeline className="mt-[2rem] md:mt-[10rem]">
             {items1.map((item) => (
               <TimelineItem key={item.id} step={item.id} className={timelineClassnames}>
