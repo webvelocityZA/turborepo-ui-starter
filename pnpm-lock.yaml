@@ -123,6 +123,9 @@ importers:
       '@tanstack/react-router':
         specifier: ^1.109.2
         version: 1.109.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-virtual':
+        specifier: ^3.13.2
+        version: 3.13.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@workspace/entities':
         specifier: workspace:*
         version: link:../../packages/entities
@@ -1882,6 +1885,12 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  '@tanstack/react-virtual@3.13.2':
+    resolution: {integrity: sha512-LceSUgABBKF6HSsHK2ZqHzQ37IKV/jlaWbHm+NyTa3/WNb/JZVcThDuTainf+PixltOOcFCYXwxbLpOX9sCx+g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
   '@tanstack/router-core@1.108.0':
     resolution: {integrity: sha512-lo6Nqdp8gxWNZ8YZ6UhiQgR0CgcAiMaw1cxgKK7M4u3nFFwqW7Hzycl5ik1l3NRh5/pQVK+OVzlKok5rrrHxSg==}
     engines: {node: '>=12'}
@@ -1934,6 +1943,9 @@ packages:
 
   '@tanstack/store@0.7.0':
     resolution: {integrity: sha512-CNIhdoUsmD2NolYuaIs8VfWM467RK6oIBAW4nPEKZhg1smZ+/CwtCdpURgp7nxSqOaV9oKkzdWD80+bC66F/Jg==}
+
+  '@tanstack/virtual-core@3.13.2':
+    resolution: {integrity: sha512-Qzz4EgzMbO5gKrmqUondCjiHcuu4B1ftHb0pjCut661lXZdGoHeze9f/M8iwsK1t5LGR6aNuNGU7mxkowaW6RQ==}
 
   '@tanstack/virtual-file-routes@1.99.0':
     resolution: {integrity: sha512-XvX8bfdo4CYiCW+ItVdBfCorh3PwQFqYqd7ll+XKWiWOJpqUGIG7VlziVavARZpUySiY2VBlHadiUYS7jhgjRg==}
@@ -6431,6 +6443,12 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       use-sync-external-store: 1.4.0(react@19.0.0)
 
+  '@tanstack/react-virtual@3.13.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@tanstack/virtual-core': 3.13.2
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   '@tanstack/router-core@1.108.0':
     dependencies:
       '@tanstack/history': 1.99.13
@@ -6488,6 +6506,8 @@ snapshots:
       diff: 7.0.0
 
   '@tanstack/store@0.7.0': {}
+
+  '@tanstack/virtual-core@3.13.2': {}
 
   '@tanstack/virtual-file-routes@1.99.0': {}
 
