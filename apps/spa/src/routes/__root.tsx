@@ -34,7 +34,7 @@ function RootRouteComponent() {
     <>
       <HeadContent />
       <HeaderContainer />
-      <main className="container mx-auto pt-4">
+      <main className="h-[var(--screen-height)]">
         <Outlet />
       </main>
       <Suspense>

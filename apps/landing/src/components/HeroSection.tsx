@@ -26,7 +26,7 @@ export const HeroSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div">, "
     <div
       {...props}
       className={cn(
-        "relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]",
+        "relative min-h-[var(--screen-height)] w-full flex items-center justify-center overflow-hidden bg-[#030303]",
         className,
       )}
     >
