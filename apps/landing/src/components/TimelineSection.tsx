@@ -1,4 +1,15 @@
-import { BoxIcon, HardDrive, TvMinimal } from "lucide-react";
+import {
+  ArrowDown,
+  Bot,
+  BotOff,
+  BoxIcon,
+  CircleCheck,
+  CircleX,
+  EyeOff,
+  GitBranch,
+  HardDrive,
+  TvMinimal,
+} from "lucide-react";
 import type React from "react";
 import { useState } from "react";
 import ReactHtmlParser from "react-html-parser";
@@ -353,20 +364,19 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
 
       {showVideo && (
         <>
-          <div className="">
-            <h1 className="mt-[2rem] md:mt-[10rem] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-center">
-              Отдельное спасибо{" "}
-              <a href="https://dribbble.com/shots/18125645-NFT-Logo-with-N-F" className="underline">
-                Maxoint
-              </a>{" "}
-              за логотип
-            </h1>
-            <p className="text-center sm:text-lg md:text-xl text-black/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Я его повзаимствовал, но это не значит, что я его украл. <br /> Просто он мне понравился. Обещаю не
-              использовать его в коммерческих целях.
-            </p>
-            <img src={logoImg} alt="logo" className="mx-auto" />
-          </div>
+          <ArrowDown className="mx-auto mt-2 md:mt-10 animate-bounce" size={56} />
+          <h1 className="mt-[2rem] md:mt-[10rem] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-center">
+            Отдельное спасибо{" "}
+            <a href="https://dribbble.com/shots/18125645-NFT-Logo-with-N-F" className="underline">
+              Maxoint
+            </a>{" "}
+            за логотип
+          </h1>
+          <p className="text-center sm:text-lg md:text-xl text-black/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+            Я его повзаимствовал, но это не значит, что я его украл. <br /> Просто он мне понравился. Обещаю не
+            использовать его в коммерческих целях.
+          </p>
+          <img src={logoImg} alt="logo" className="mx-auto" />
           <Timeline className="mt-[2rem] md:mt-[10rem]">
             {items1.map((item) => (
               <TimelineItem key={item.id} step={item.id} className={timelineClassnames}>
@@ -428,6 +438,61 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
               ))}
             </Card>
           </Tabs>
+
+          <h1 className="mt-[2rem] md:mt-[10rem] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-center text-muted mx-[-20vw]">
+            DEMO/DEMO/<span className="text-primary">/DEMO/</span>
+            /DEMO/DEMO
+          </h1>
+          <div className="w-fit flex flex-col gap-4 mt-[2rem] md:mt-[5rem] mx-auto">
+            <div className="grid grid-cols-[32px_auto] items-center gap-2">
+              <GitBranch className="me-2" size={32} />
+              <div className="flex flex-col gap-1 truncate">
+                <h3 className="text-xl font-bold inline-flex items-center gap-1 truncate">
+                  GitHub repo
+                  <CircleX size={20} className="text-destructive" />
+                </h3>
+                <a href="https://github.com/bodasooqa/ton-society-test" target="_blanc" className="underline truncate">
+                  https://github.com/bodasooqa/ton-society-test
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-[32px_auto] items-center gap-2">
+              <EyeOff className="me-2" size={32} />
+              <div className="flex flex-col gap-1 truncate">
+                <h3 className="text-xl font-bold inline-flex items-center gap-1 truncate">
+                  Live Demo (throws error)
+                  <CircleX size={20} className="text-destructive" />
+                </h3>
+                <a href="https://ton-society-test-spa.vercel.app" target="_blanc" className="underline truncate">
+                  https://ton-society-test-spa.vercel.app
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-[32px_auto] items-center gap-2">
+              <BotOff className="me-2" size={32} />
+              <div className="flex flex-col gap-1 truncate">
+                <h3 className="text-xl font-bold inline-flex items-center gap-1 truncate">
+                  Telegram Bot (throws CORS error)
+                  <CircleX size={20} className="text-destructive" />
+                </h3>
+                <a href="https://t.me/NFTMPBSCORSBot" target="_blanc" className="underline truncate">
+                  https://t.me/NFTMPBSCORSBot
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-[32px_auto] items-center gap-2">
+              <Bot className="me-2" size={32} />
+              <div className="flex flex-col gap-1 truncate">
+                <h3 className="text-xl font-bold inline-flex items-center gap-1 truncate">
+                  Telegram Bot
+                  <CircleCheck size={20} className="text-green-700" />
+                </h3>
+                <a href="https://t.me/NFTMPBSBot" target="_blanc" className="underline truncate">
+                  https://t.me/NFTMPBSBot
+                </a>
+              </div>
+            </div>
+          </div>
         </>
       )}
     </div>
