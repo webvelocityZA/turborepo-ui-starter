@@ -6,12 +6,13 @@ import {
   HttpException,
   HttpStatus,
   Patch,
+  Query,
   UseInterceptors,
   UsePipes,
   ValidationPipe,
 } from "@nestjs/common";
 
-import { AppendAddressesDto } from "./api.dto";
+import { AppendAddressesDto, GetAddressesQuery } from "./api.dto";
 import { ApiService } from "./api.service";
 
 @Controller("api")
@@ -20,10 +21,11 @@ export class ApiController {
   constructor(private notionService: ApiService) {}
 
   @Get("addresses")
-  async getAddresses() {
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async getAddresses(@Query() params: GetAddressesQuery) {
     try {
-      const data = await this.notionService.getAddresses();
-      return { success: true, data };
+      const data = await this.notionService.getAddresses(params);
+      return { success: true, ...data };
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }

@@ -7,6 +7,8 @@ import { Cache } from "cache-manager";
 
 import type { Config } from "src/config";
 
+import { GetAddressesQuery } from "./api.dto";
+import { GetAddressesResponseData } from "./api.types";
 import { buildTableRow } from "./utils";
 
 @Injectable()
@@ -22,17 +24,22 @@ export class ApiService {
     });
   }
 
-  async getAddresses(): Promise<string[]> {
+  async getAddresses(params: GetAddressesQuery): Promise<GetAddressesResponseData> {
     try {
-      const { results } = await this.notionClient.blocks.children.list({
+      const { results, next_cursor } = await this.notionClient.blocks.children.list({
         block_id: this.configService.get("NOTION_BLOCK_ID", { infer: true }),
+        page_size: params.pageSize,
+        start_cursor: params.startCursor,
       });
 
-      return results
-        .filter((result) => "type" in result && result.type === "table_row")
-        .flatMap((row) => (row.table_row.cells[0]?.[0] ? [row.table_row.cells[0][0]] : []))
-        .filter((item) => item.type === "text")
-        .map(({ text }) => text.content);
+      return {
+        data: results
+          .filter((result) => "type" in result && result.type === "table_row")
+          .flatMap((row) => (row.table_row.cells[0]?.[0] ? [row.table_row.cells[0][0]] : []))
+          .filter((item) => item.type === "text")
+          .map(({ text }) => text.content),
+        nextCursor: next_cursor,
+      };
     } catch (error) {
       console.error("Failed to fetch addresses", error);
       throw new Error("Failed to fetch addresses");
