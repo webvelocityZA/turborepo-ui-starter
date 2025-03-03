@@ -3,6 +3,7 @@ import React from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@workspace/ui/components/card";
 
 import { AddressTooltip } from "@/components/AddressTooltip";
+import { NftImage } from "@/components/NftImage";
 import type { NFTItem } from "@/entities/NFTItem";
 import { formatter } from "@/utils/formatter";
 
@@ -22,7 +23,7 @@ export const NFTItemCard = React.forwardRef<HTMLDivElement, NFTItemCardProps>(({
       </CardDescription>
     </CardHeader>
     <CardContent className="p-0">
-      <img src={nftItem.image} alt={nftItem.name} className="w-full h-auto" />
+      <NftImage src={nftItem.image} alt={nftItem.name} className="w-full h-auto aspect-square" />
     </CardContent>
     {nftItem.description ? <CardFooter className="p-4">{nftItem.description}</CardFooter> : null}
   </Card>
