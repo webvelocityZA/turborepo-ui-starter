@@ -111,7 +111,7 @@ const items1 = [
     titleIcon: "&#x1F4FA;",
     texts: [
       "Конечно, я выбрал базой Vite!",
-      'Вот <b><a href="https://www.threads.net/@bodasooqa/post/C2LHmkfS1xK?xmt=AQGzaSIc4exugnry2Y2pOATYmmXh7ff_slie-TnthHgs8w">тут</a></b> можно даже почитать мой тред в threads, где я ясно доношу преимущества Vite. Может, хотя бы так его кто-то прочитает (нет).',
+      'Вот <b><a href="https://www.threads.net/@bodasooqa/post/C2LHmkfS1xK?xmt=AQGzaSIc4exugnry2Y2pOATYmmXh7ff_slie-TnthHgs8w" target="_blank" rel="noreferrer">тут</a></b> можно даже почитать мой тред в threads, где я ясно доношу преимущества Vite. Может, хотя бы так его кто-то прочитает (нет).',
       "Для стилей я использовал Tailwind, а для компонентов — Radix. А когда ты используешь такую связку, совсем неподолеку стоит shadcn/ui.",
       "И как кстати, shadcn/ui выполнен в стиле Vercel! Неожиданно, правда?",
     ],
@@ -210,7 +210,7 @@ const tab0Items = [
       "Все стили в приложении реализованы с помощью Tailwind v4.",
       "Tailwind позволяет мне быстро и удобно стилизовать компоненты, а также использовать его классы в JSX.",
       "Кстати, стили являются глобальными и применяются ко всему приложению. В пакете ui сконфигурирован Tailwind, который при надобности может быть расширен в любом из приложений.",
-      'Также, это первое за долгое время приложение, в котором я не использовал SASS/SCSS. Причина <b><a href="https://tailwindcss.com/docs/compatibility#sass-less-and-stylus">здесь</a></b>, он буквально перестал быть нужен.',
+      'Также, это первое за долгое время приложение, в котором я не использовал SASS/SCSS. Причина <b><a href="https://tailwindcss.com/docs/compatibility#sass-less-and-stylus" target="_blank" rel="noreferrer">здесь</a></b>, он буквально перестал быть нужен.',
     ],
   },
   {
@@ -367,7 +367,12 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
           <ArrowDown className="mx-auto mt-2 md:mt-10 animate-bounce" size={56} />
           <h1 className="mt-[2rem] md:mt-[10rem] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-center">
             Отдельное спасибо{" "}
-            <a href="https://dribbble.com/shots/18125645-NFT-Logo-with-N-F" className="underline">
+            <a
+              href="https://dribbble.com/shots/18125645-NFT-Logo-with-N-F"
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
               Maxoint
             </a>{" "}
             за логотип
@@ -451,7 +456,12 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
                   GitHub repo
                   <CircleX size={20} className="text-destructive" />
                 </h3>
-                <a href="https://github.com/bodasooqa/ton-society-test" target="_blanc" className="underline truncate">
+                <a
+                  href="https://github.com/bodasooqa/ton-society-test"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline truncate"
+                >
                   https://github.com/bodasooqa/ton-society-test
                 </a>
               </div>
@@ -463,7 +473,12 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
                   Live Demo (throws error)
                   <CircleX size={20} className="text-destructive" />
                 </h3>
-                <a href="https://ton-society-test-spa.vercel.app" target="_blanc" className="underline truncate">
+                <a
+                  href="https://ton-society-test-spa.vercel.app"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline truncate"
+                >
                   https://ton-society-test-spa.vercel.app
                 </a>
               </div>
@@ -475,7 +490,7 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
                   Telegram Bot (throws CORS error)
                   <CircleX size={20} className="text-destructive" />
                 </h3>
-                <a href="https://t.me/NFTMPBSCORSBot" target="_blanc" className="underline truncate">
+                <a href="https://t.me/NFTMPBSCORSBot" target="_blank" rel="noreferrer" className="underline truncate">
                   https://t.me/NFTMPBSCORSBot
                 </a>
               </div>
@@ -487,7 +502,7 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
                   Telegram Bot
                   <CircleCheck size={20} className="text-green-700" />
                 </h3>
-                <a href="https://t.me/NFTMPBSBot" target="_blanc" className="underline truncate">
+                <a href="https://t.me/NFTMPBSBot" target="_blank" rel="noreferrer" className="underline truncate">
                   https://t.me/NFTMPBSBot
                 </a>
               </div>
