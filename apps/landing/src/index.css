@@ -1,1 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 @import "@workspace/ui/globals.css";
+
+@theme {
+  --font-pacifico: "Pacifico", "sans-serif";
+}
