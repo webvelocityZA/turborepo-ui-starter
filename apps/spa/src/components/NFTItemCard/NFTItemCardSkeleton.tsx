@@ -6,7 +6,7 @@ import { Skeleton } from "@workspace/ui/components/skeleton";
 export const NFTItemCardSkeleton: React.FC<Omit<React.ComponentPropsWithoutRef<typeof Card>, "children">> = (props) => (
   <Card {...props}>
     <CardHeader className="p-4">
-      <Skeleton className="w-1/2 h-4" />
+      <Skeleton className="w-1/2 h-6" />
       <CardDescription className="inline-flex gap-2">
         <Skeleton className="w-1/4 h-5" />
         <Skeleton className="w-1/4 h-5" />
