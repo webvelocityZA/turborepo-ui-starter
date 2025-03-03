@@ -1,5 +1,5 @@
 import type { QueryClient } from "@tanstack/react-query";
-import { type ErrorComponentProps, Outlet, createRootRouteWithContext } from "@tanstack/react-router";
+import { type ErrorComponentProps, HeadContent, Outlet, createRootRouteWithContext } from "@tanstack/react-router";
 import { LoaderCircle, TriangleAlert } from "lucide-react";
 import React, { Suspense } from "react";
 
@@ -32,6 +32,7 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 function RootRouteComponent() {
   return (
     <>
+      <HeadContent />
       <HeaderContainer />
       <main className="container mx-auto pt-4">
         <Outlet />

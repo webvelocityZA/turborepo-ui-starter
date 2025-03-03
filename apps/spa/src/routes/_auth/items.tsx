@@ -59,6 +59,9 @@ export const Route = createFileRoute("/_auth/items")({
     queryClient.ensureInfiniteQueryData(addressesQueryOptions(pageSize)),
   pendingComponent: RoutePendingComponent,
   staleTime: 10_000, // 10 seconds
+  head: () => ({
+    meta: [{ title: "NFT Marketplace | Items" }],
+  }),
 });
 
 function RouteComponent() {

@@ -10,6 +10,9 @@ export const Route = createFileRoute("/login")({
     if (context.wallet) throw redirect({ to: "/items" });
   },
   component: RouteComponent,
+  head: () => ({
+    meta: [{ title: "NFT Marketplace | Login" }],
+  }),
 });
 
 function RouteComponent() {
