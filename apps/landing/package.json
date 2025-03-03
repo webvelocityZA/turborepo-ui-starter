@@ -21,6 +21,7 @@
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-html-parser": "^2.0.2",
     "znv": "^0.4.0",
     "zod": "^3.24.2"
   },
