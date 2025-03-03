@@ -1,5 +1,5 @@
 {
   "url": "https://ton-society-test-spa.vercel.app",
   "name": "TON NFT Marketplace",
-  "iconUrl": "https://ton-society-test-backend.vercel.app/files/logo.png"
+  "iconUrl": "https://ton-society-test-spa.vercel.app/public/logo.png"
 }
