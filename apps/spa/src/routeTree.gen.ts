@@ -39,7 +39,7 @@ const AuthItemsRoute = AuthItemsImport.update({
   id: '/items',
   path: '/items',
   getParentRoute: () => AuthRoute,
-} as any)
+} as any).lazy(() => import('./routes/_auth/items.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
