@@ -34,7 +34,7 @@ export const MotivationSection: React.FC<Omit<React.ComponentPropsWithoutRef<"di
     <p className="text-center sm:text-lg md:text-xl text-black/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
       Что побудило меня так активно бороться за данную вакансию?
     </p>
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 mx-auto lg:max-w-3/4">
       {features.map(({ title, description }, index) => (
         <div key={index} className="bg-white py-2">
           <h3 className="text-xl font-semibold mb-2">{ReactHtmlParser(title)}</h3>
