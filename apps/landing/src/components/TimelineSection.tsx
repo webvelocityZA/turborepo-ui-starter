@@ -28,6 +28,8 @@ import {
 } from "@workspace/ui/components/timeline";
 import { cn } from "@workspace/ui/lib/utils";
 
+import { DemoHeader } from "@/components/DemoHeader";
+
 import logoImg from "@/assets/logo.png";
 
 const timelineClassnames =
@@ -444,10 +446,8 @@ export const TimelineSection: React.FC<Omit<React.ComponentPropsWithoutRef<"div"
             </Card>
           </Tabs>
 
-          <h1 className="mt-[2rem] md:mt-[10rem] text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tight text-center text-muted mx-[-20vw]">
-            DEMO/DEMO/<span className="text-primary">/DEMO/</span>
-            /DEMO/DEMO
-          </h1>
+          <DemoHeader />
+
           <div className="w-fit flex flex-col gap-4 mt-[2rem] md:mt-[5rem] mx-auto">
             <div className="grid grid-cols-[32px_auto] items-center gap-2">
               <GitBranch className="me-2" size={32} />
