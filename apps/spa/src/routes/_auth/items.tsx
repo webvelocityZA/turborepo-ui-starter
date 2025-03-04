@@ -13,10 +13,6 @@ import { NFTItem } from "@/entities/NFTItem";
 import { APINetworkService } from "@/services/APINetworkService";
 import { TonAPINetworkService } from "@/services/TonAPINetworkService";
 
-const spacing4 = Number.parseInt(
-  window.getComputedStyle(document.documentElement).getPropertyValue("--spacing-4").slice(0, -2),
-);
-
 const addressesQueryOptions = (pageSize: number) =>
   infiniteQueryOptions({
     queryKey: ["nftItems", pageSize],
@@ -86,12 +82,11 @@ function RouteComponent() {
   const virtualizer = useVirtualizer({
     count: hasNextPage ? nftItems.length + 1 : nftItems.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 500,
+    estimateSize: () => 80,
     overscan: 2,
     paddingStart:
-      Number.parseInt(document.documentElement.style.getPropertyValue("--header-height").slice(0, -2)) + spacing4,
-    paddingEnd: spacing4,
-    gap: spacing4,
+      Number.parseInt(document.documentElement.style.getPropertyValue("--header-height").slice(0, -2)) +
+      Number.parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--spacing-4").slice(0, -2)),
   });
 
   useEffect(() => {
@@ -104,14 +99,13 @@ function RouteComponent() {
     }
   }, [hasNextPage, fetchNextPage, nftItems.length, isFetchingNextPage, virtualizer.getVirtualItems()]);
 
+  const items = virtualizer.getVirtualItems();
+
   return (
-    <div ref={parentRef} className="container min-h-full overflow-y-auto contain-strict flex flex-col gap-4">
+    <div ref={parentRef} className="container h-[var(--screen-height)] overflow-y-auto contain-strict">
       <div style={{ height: virtualizer.getTotalSize() }} className="w-full relative">
-        <div
-          style={{ transform: `translateY(${virtualizer.getVirtualItems()[0]?.start ?? 0}px)` }}
-          className="absolute top-0 left-0 w-full"
-        >
-          {virtualizer.getVirtualItems().map((virtualRow) => {
+        <div style={{ transform: `translateY(${items[0]?.start ?? 0}px)` }} className="absolute top-0 left-0 w-full">
+          {items.map((virtualRow) => {
             const isLoaderRow = virtualRow.index > nftItems.length - 1;
             const nftItem = nftItems[virtualRow.index];
 
@@ -125,7 +119,7 @@ function RouteComponent() {
                 data-index={virtualRow.index}
                 ref={virtualizer.measureElement}
                 nftItem={nftItem}
-                className="not-first:mt-4"
+                className="not-last:mb-4 last:mb-8"
               />
             );
           })}
