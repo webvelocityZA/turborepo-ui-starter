@@ -23,9 +23,7 @@ This repository contains the source code of monorepo.
   - [Installation](#installation)
   - [Develpment](#develpment)
   - [Build](#build)
-  - [Deployment](#deployment)
   - [Monorepo Structure \& Usage](#monorepo-structure--usage)
-  - [Data management](#data-management)
 
 ## Installation
 
@@ -59,12 +57,6 @@ Just build all of the applications via this command:
 ```bash
 turbo build
 ```
-
-## Deployment
-
-Deployment is done through Vercel. And Vercel determines that the project is a Turborepo (wow!).
-
-![Alt text](meta/vercel-deployment.png "Title")
 
 ## Monorepo Structure & Usage
 
