@@ -40,21 +40,5 @@
       }
     }
   },
-  "overrides": [
-    {
-      "include": ["apps/backend/**"],
-      "linter": {
-        "rules": {
-          "style": {
-            "useImportType": "off"
-          }
-        }
-      },
-      "javascript": {
-        "parser": {
-          "unsafeParameterDecoratorsEnabled": true
-        }
-      }
-    }
-  ]
+  "overrides": []
 }
