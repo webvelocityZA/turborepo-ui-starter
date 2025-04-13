@@ -18,7 +18,7 @@ importers:
         specifier: ^2.4.0
         version: 2.4.0
 
-  apps/landing:
+  apps/starter:
     dependencies:
       '@tailwindcss/vite':
         specifier: ^4.0.7
